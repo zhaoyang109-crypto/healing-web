@@ -626,7 +626,14 @@ function renderVideoCards() {
     // 绑定点击事件
     grid.querySelectorAll('.video-card:not([data-bound])').forEach(card => {
         card.setAttribute('data-bound', 'true');
-        card.addEventListener('click', () => openVideoPlayer(card.dataset.bvid));
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const bvid = card.dataset.bvid;
+            console.log('点击了视频卡片:', bvid);
+            openVideoPlayer(bvid);
+        });
     });
     
     // 隐藏/显示"加载更多"
@@ -637,15 +644,14 @@ function renderVideoCards() {
 }
 
 function createVideoCardHTML(video) {
-    const thumbUrl = `https://api.bilibili.com/x/web-interface/view?bvid=${video.bvid}`;
-    // 使用 B站封面 API
-    const coverUrl = `https://i0.hdslb.com/bfs/archive/${video.bvid.slice(3, 5)}${video.bvid.slice(6, 8)}${video.bvid.slice(-4)}/${video.bvid}.jpg`;
+    // 使用更可靠的 B站封面地址格式
+    const coverUrl = `https://i0.hdslb.com/bfs/archive/${video.bvid.slice(3,5)}/${video.bvid.slice(6,8)}/${video.bvid}.jpg@672w_400h`;
     const tagNames = { meditation: '冥想', sleep: '助眠', anxiety: '解压', emotion: '情绪', yoga: '瑜伽' };
     
     return `
         <div class="video-card" data-bvid="${video.bvid}">
             <div class="video-thumb-wrapper">
-                <img class="video-thumb" src="${coverUrl}" alt="${video.title}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 160 90%22><rect fill=%22%23e8eeF3%22 width=%22160%22 height=%2290%22/><text x=%2280%22 y=%2250%22 text-anchor=%22middle%22 fill=%22%2394a3b8%22 font-size=%2214%22>🎬</text></svg>'">
+                <img class="video-thumb" src="${coverUrl}" alt="${video.title}" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 160 90%22><rect fill=%22%23F5EED%22 width=%22160%22 height=%2290%22/><text x=%2280%22 y=%2250%22 text-anchor=%22middle%22 fill=%22%23B89D4%22 font-size=%2214%22>🎬</text></svg>'">
                 <div class="video-play-overlay"><div class="video-play-icon">▶</div></div>
                 <span class="video-duration-badge">${video.duration}</span>
             </div>
@@ -667,21 +673,32 @@ function openVideoPlayer(bvid) {
     const modal = $('#videoModal');
     const iframe = $('#videoIframe');
     
-    // B站嵌入播放地址
-    iframe.src = `//player.bilibili.com/player.html?bvid=${bvid}&page=1&high_quality=1&danmaku=0`;
+    if (!modal || !iframe) {
+        console.error('视频弹窗元素未找到');
+        return;
+    }
+    
+    // B站嵌入播放地址 - 使用完整 https 协议
+    iframe.src = `https://player.bilibili.com/player.html?bvid=${bvid}&page=1&high_quality=1&danmaku=0`;
     $('#videoModalTitle').textContent = video.title;
     $('#videoModalDesc').textContent = video.desc;
     $('#videoModalAuthor').textContent = `UP主：${video.author}`;
     $('#videoModalViews').textContent = `👁 ${video.views}次观看`;
     $('#videoModalLink').href = `https://www.bilibili.com/video/${bvid}`;
     
+    // 强制显示弹窗
+    modal.style.display = 'flex';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    console.log('视频弹窗已打开:', video.title);
 }
 
 function closeVideoPlayer() {
     const modal = $('#videoModal');
-    modal?.classList.remove('active');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.style.display = 'none';
     document.body.style.overflow = '';
     // 停止视频播放
     const iframe = $('#videoIframe');
