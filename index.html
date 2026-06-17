@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>心灵港湾 - 企业员工心理疗愈中心</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 浮动粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-brand">🌿 心灵港湾</div>
+        <ul class="nav-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#breathe">呼吸练习</a></li>
+            <li><a href="#meditation">冥想空间</a></li>
+            <li><a href="#mood">情绪日记</a></li>
+            <li><a href="#videos">疗愈视频</a></li>
+            <li><a href="#resources">疗愈资源</a></li>
+            <li><a href="#support">寻求帮助</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="菜单">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- 首页 Hero 区域 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">
+                <span class="title-line">在这里，让心灵</span>
+                <span class="title-line gradient-text">找到栖息的港湾</span>
+            </h1>
+            <p class="hero-subtitle fade-in delay-1">
+                专为企业员工打造的心理疗愈空间 · 每一天都值得被温柔以待
+            </p>
+            <div class="hero-actions fade-in delay-2">
+                <a href="#breathe" class="btn btn-primary">开始呼吸练习</a>
+                <a href="#meditation" class="btn btn-secondary">进入冥想空间</a>
+            </div>
+            <div class="hero-stats fade-in delay-3">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="10000">0</span>+
+                    <span class="stat-label">位员工已受益</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50000">0</span>+
+                    <span class="stat-label">次疗愈练习</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="98">0</span>%
+                    <span class="stat-label">好评率</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="float-circle circle-1"></div>
+                <div class="float-circle circle-2"></div>
+                <div class="float-circle circle-3"></div>
+                <div class="float-leaf leaf-1">🍃</div>
+                <div class="float-leaf leaf-2">🌸</div>
+                <div class="float-leaf leaf-3">💫</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 温馨提示横幅 -->
+    <section class="warm-banner">
+        <div class="banner-content">
+            <span class="banner-icon">💝</span>
+            <p>亲爱的同事，照顾好自己的内心，也是一种工作能力。这里的一切服务对你完全免费，请放心使用。</p>
+        </div>
+    </section>
+
+    <!-- 呼吸练习区域 -->
+    <section id="breathe" class="section breathe-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🫁 呼吸练习</h2>
+                <p class="section-desc">跟随节奏，深呼吸，让身心回归平静</p>
+            </div>
+            
+            <div class="breathe-container">
+                <div class="breathe-circle-wrapper">
+                    <div class="breathe-circle" id="breatheCircle">
+                        <div class="breathe-text" id="breatheText">准备开始</div>
+                        <div class="breathe-ring"></div>
+                    </div>
+                </div>
+                
+                <div class="breathe-controls">
+                    <div class="breathe-modes">
+                        <button class="mode-btn active" data-mode="relax">放松呼吸 (4-7-8)</button>
+                        <button class="mode-btn" data-mode="energize">提神呼吸</button>
+                        <button class="mode-btn" data-mode="calm">平静呼吸</button>
+                        <button class="mode-btn" data-mode="sleep">助眠呼吸</button>
+                    </div>
+                    
+                    <div class="breathe-timer-display">
+                        <span id="sessionTime">05:00</span>
+                        <div class="timer-label">练习时长</div>
+                    </div>
+                    
+                    <div class="breathe-actions">
+                        <button class="btn btn-primary btn-lg" id="breatheStartBtn">开始练习</button>
+                        <button class="btn btn-outline" id="breatheResetBtn">重置</button>
+                    </div>
+                </div>
+                
+                <div class="breathe-tips">
+                    <h4>💡 呼吸小贴士</h4>
+                    <ul>
+                        <li>找一个安静舒适的位置坐下或躺下</li>
+                        <li>通过鼻子缓慢吸气，感受腹部隆起</li>
+                        <li>短暂屏息，让氧气充分进入身体</li>
+                        <li>通过嘴巴或鼻子缓缓呼气</li>
+                        <li>不要强迫自己，顺其自然就好</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 冥想空间 -->
+    <section id="meditation" class="section meditation-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🧘 冥想空间</h2>
+                <p class="section-desc">选择一段引导冥想，开启内心的宁静之旅</p>
+            </div>
+            
+            <div class="meditation-grid">
+                <div class="meditation-card" data-type="focus">
+                    <div class="card-icon">🎯</div>
+                    <h3>专注力冥想</h3>
+                    <p>提升工作专注度，减少分心和焦虑</p>
+                    <div class="card-duration">10 分钟</div>
+                    <div class="card-tag">推荐 · 工作前</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+                
+                <div class="meditation-card" data-type="stress">
+                    <div class="card-icon">😌</div>
+                    <h3>压力释放</h3>
+                    <p>释放工作和生活压力，找回内心平衡</p>
+                    <div class="card-duration">15 分钟</div>
+                    <div class="card-tag">热门 · 随时</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+                
+                <div class="meditation-card" data-type="sleep">
+                    <div class="card-icon">🌙</div>
+                    <h3>深度睡眠</h3>
+                    <p>缓解失眠困扰，享受高质量睡眠</p>
+                    <div class="card-duration">20 分钟</div>
+                    <div class="card-tag">睡前</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+                
+                <div class="meditation-card" data-type="morning">
+                    <div class="card-icon">🌅</div>
+                    <h3>晨间唤醒</h3>
+                    <p>以积极的心态迎接全新的一天</p>
+                    <div class="card-duration">8 分钟</div>
+                    <div class="card-tag">早晨</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+                
+                <div class="meditation-card" data-type="gratitude">
+                    <div class="card-icon">🙏</div>
+                    <h3>感恩冥想</h3>
+                    <p>培养感恩之心，发现生活中的美好</p>
+                    <div class="card-duration">12 分钟</div>
+                    <div class="card-tag">心情低落时</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+                
+                <div class="meditation-card" data-type="body">
+                    <div class="card-icon">✨</div>
+                    <h3>身体扫描</h3>
+                    <p>从头顶到脚趾，全面放松每一个部位</p>
+                    <div class="card-duration">18 分钟</div>
+                    <div class="card-tag">深度放松</div>
+                    <button class="btn btn-card">开始冥想</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 冥想播放器弹窗 -->
+    <div class="modal" id="meditationModal">
+        <div class="modal-content meditation-player">
+            <button class="modal-close" id="closeMeditation">&times;</button>
+            <div class="player-visual">
+                <div class="player-animation" id="playerAnimation">
+                    <div class="animation-ring ring-1"></div>
+                    <div class="animation-ring ring-2"></div>
+                    <div class="animation-ring ring-3"></div>
+                    <div class="animation-center">🧘</div>
+                </div>
+            </div>
+            <h3 class="player-title" id="playerTitle">专注力冥想</h3>
+            <p class="player-desc" id="playerDesc">提升工作专注度，减少分心和焦虑</p>
+            
+            <div class="player-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-time">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">10:00</span>
+                </div>
+            </div>
+            
+            <div class="player-controls">
+                <button class="control-btn" id="playerBackward">⏪ 15s</button>
+                <button class="control-btn control-btn-main" id="playerPlayPause">▶️</button>
+                <button class="control-btn" id="playerForward">15s ⏩</button>
+            </div>
+            
+            <div class="player-volume">
+                <span>🔊</span>
+                <input type="range" min="0" max="100" value="80" id="volumeSlider" class="volume-slider">
+            </div>
+        </div>
+    </div>
+
+    <!-- 情绪日记 -->
+    <section id="mood" class="section mood-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📔 情绪日记</h2>
+                <p class="section-desc">记录当下的情绪，与自己的内心对话</p>
+            </div>
+            
+            <div class="mood-container">
+                <div class="mood-tracker">
+                    <h3>现在感觉如何？</h3>
+                    <div class="mood-emojis">
+                        <button class="mood-btn" data-mood="great" data-value="5">
+                            <span class="mood-emoji">😄</span>
+                            <span class="mood-label">很棒</span>
+                        </button>
+                        <button class="mood-btn" data-mood="good" data-value="4">
+                            <span class="mood-emoji">🙂</span>
+                            <span class="mood-label">不错</span>
+                        </button>
+                        <button class="mood-btn" data-mood="okay" data-value="3">
+                            <span class="mood-emoji">😐</span>
+                            <span class="mood-label">一般</span>
+                        </button>
+                        <button class="mood-btn" data-mood="low" data-value="2">
+                            <span class="mood-emoji">😔</span>
+                            <span class="mood-label">低落</span>
+                        </button>
+                        <button class="mood-btn" data-mood="bad" data-value="1">
+                            <span class="mood-emoji">😢</span>
+                            <span class="mood-label">糟糕</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="diary-entry">
+                    <div class="diary-textarea-wrapper">
+                        <textarea 
+                            id="diaryText" 
+                            placeholder="写下此刻的想法和感受...（这里只有你能看到，完全私密）"
+                            rows="5"
+                        ></textarea>
+                        <button class="voice-input-btn" id="voiceInputBtn" title="语音输入">
+                            🎙️
+                        </button>
+                    </div>
+                    
+                    <div class="entry-tags">
+                        <span class="tag-label">添加标签：</span>
+                        <div class="tags-list">
+                            <button class="tag-btn" data-tag="work">💼 工作</button>
+                            <button class="tag-btn" data-tag="family">👨‍👩‍👧 家庭</button>
+                            <button class="tag-btn" data-tag="health">🏥 健康</button>
+                            <button class="tag-btn" data-tag="relationship">❤️ 人际</button>
+                            <button class="tag-btn" data-tag="finance">💰 经济</button>
+                            <button class="tag-btn" data-tag="self">🪞 自我</button>
+                        </div>
+                    </div>
+                    
+                    <div class="entry-actions">
+                        <button class="btn btn-primary" id="saveDiary">保存记录</button>
+                        <button class="btn btn-outline" id="clearDiary">清空</button>
+                    </div>
+                </div>
+                
+                <div class="mood-history" id="moodHistory">
+                    <h3>📊 近期情绪记录</h3>
+                    <div class="mood-chart" id="moodChart">
+                        <div class="chart-placeholder">
+                            <p>开始记录你的情绪吧！<br>坚持记录可以帮助你更好地了解自己。</p>
+                        </div>
+                    </div>
+                    <div class="history-list" id="historyList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 疗愈资源 -->
+    <section id="resources" class="section resources-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📚 疗愈资源</h2>
+                <p class="section-desc">精选的心理健康知识和自助工具</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-category">
+                    <h3>📖 心理知识</h3>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="#">认识焦虑：它其实是在保护你</a>
+                            <span class="resource-meta">阅读 5 分钟</span>
+                        </li>
+                        <li>
+                            <a href="#">如何识别职业倦怠的信号</a>
+                            <span class="resource-meta">阅读 8 分钟</span>
+                        </li>
+                        <li>
+                            <a href="#">建立健康边界的艺术</a>
+                            <span class="resource-meta">阅读 6 分钟</span>
+                        </li>
+                        <li>
+                            <a href="#">正念入门：活在当下</a>
+                            <span class="resource-meta">阅读 10 分钟</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="resource-category">
+                    <h3>🎵 舒缓音乐</h3>
+                    <div class="music-player-mini">
+                        <div class="music-items">
+                            <div class="music-item" data-music="rain">
+                                <span class="music-icon">🌧️</span>
+                                <span class="music-name">雨声白噪音</span>
+                                <button class="music-play-btn">▶</button>
+                            </div>
+                            <div class="music-item" data-music="ocean">
+                                <span class="music-icon">🌊</span>
+                                <span class="music-name">海浪声</span>
+                                <button class="music-play-btn">▶</button>
+                            </div>
+                            <div class="music-item" data-music="forest">
+                                <span class="music-icon">🌲</span>
+                                <span class="music-name">森林鸟鸣</span>
+                                <button class="music-play-btn">▶</button>
+                            </div>
+                            <div class="music-item" data-music="piano">
+                                <span class="music-icon">🎹</span>
+                                <span class="music-name">轻柔钢琴</span>
+                                <button class="music-play-btn">▶</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resource-category">
+                    <h3>✅ 每日打卡</h3>
+                    <div class="daily-checkin">
+                        <div class="checkin-grid">
+                            <div class="checkin-item" data-checkin="water">
+                                <span class="checkin-icon">💧</span>
+                                <span class="checkin-text">喝够8杯水</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                            <div class="checkin-item" data-checkin="walk">
+                                <span class="checkin-icon">🚶</span>
+                                <span class="checkin-text">散步10分钟</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                            <div class="checkin-item" data-checkin="stretch">
+                                <span class="checkin-icon">🤸</span>
+                                <span class="checkin-text">拉伸放松</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                            <div class="checkin-item" data-checkin="digital">
+                                <span class="checkin-icon">📵</span>
+                                <span class="checkin-text">数字 detox 1小时</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                            <div class="checkin-item" data-checkin="thankful">
+                                <span class="checkin-icon">🙏</span>
+                                <span class="checkin-text">写下3件感恩的事</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                            <div class="checkin-item" data-checkin="early">
+                                <span class="checkin-icon">🌙</span>
+                                <span class="checkin-text">23点前休息</span>
+                                <input type="checkbox" class="checkin-checkbox">
+                            </div>
+                        </div>
+                        <div class="checkin-progress">
+                            <div class="progress-info">
+                                <span>今日完成：<strong id="checkinCount">0</strong>/6</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="checkinProgress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 疗愈视频 -->
+    <section id="videos" class="section videos-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎬 疗愈视频</h2>
+                <p class="section-desc">精选 B站心理疗愈视频，让温暖的声音陪伴你</p>
+            </div>
+
+            <!-- 视频分类标签 -->
+            <div class="video-categories" id="videoCategories">
+                <button class="video-cat-btn active" data-category="all">全部推荐</button>
+                <button class="video-cat-btn" data-category="meditation">🧘 冥想引导</button>
+                <button class="video-cat-btn" data-category="sleep">😴 助眠放松</button>
+                <button class="video-cat-btn" data-category="anxiety">💪 焦虑缓解</button>
+                <button class="video-cat-btn" data-category="emotion">❤️ 情绪管理</button>
+                <button class="video-cat-btn" data-category="yoga">🤸 瑜伽拉伸</button>
+            </div>
+
+            <!-- 视频加载状态 -->
+            <div class="video-loading" id="videoLoading">
+                <div class="loading-spinner"></div>
+                <p>正在从 B站获取疗愈视频...</p>
+            </div>
+
+            <!-- 视频网格 -->
+            <div class="video-grid" id="videoGrid"></div>
+
+            <!-- 加载更多 -->
+            <div class="video-more" id="videoMore">
+                <button class="btn btn-outline" id="loadMoreVideos">加载更多视频 ↓</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频播放弹窗 -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content video-player-modal">
+            <button class="modal-close" id="closeVideoModal">&times;</button>
+            <div class="video-iframe-wrapper">
+                <iframe id="videoIframe" src="" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            </div>
+            <div class="video-info">
+                <h3 class="video-modal-title" id="videoModalTitle"></h3>
+                <p class="video-modal-desc" id="videoModalDesc"></p>
+                <div class="video-modal-meta">
+                    <span class="video-modal-author" id="videoModalAuthor"></span>
+                    <span class="video-modal-views" id="videoModalViews"></span>
+                    <a class="video-modal-link" id="videoModalLink" href="#" target="_blank" rel="noopener">在B站观看 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 寻求帮助 -->
+    <section id="support" class="section support-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🤝 寻求帮助</h2>
+                <p class="section-desc">求助不是软弱，而是勇敢的选择</p>
+            </div>
+            
+            <div class="support-cards">
+                <div class="support-card hotlines">
+                    <h3>📞 全国心理援助热线</h3>
+                    <div class="hotline-list">
+                        <div class="hotline-item">
+                            <span class="hotline-number">400-161-9995</span>
+                            <span class="hotline-name">全国希望24热线（24小时）</span>
+                        </div>
+                        <div class="hotline-item">
+                            <span class="hotline-number">010-82951332</span>
+                            <span class="hotline-name">北京心理危机研究与干预中心</span>
+                        </div>
+                        <div class="hotline-item">
+                            <span class="hotline-number">021-12320-5</span>
+                            <span class="hotline-name">上海市心理援助热线</span>
+                        </div>
+                        <div class="hotline-item">
+                            <span class="hotline-number">400-161-9995</span>
+                            <span class="hotline-name">生命热线（自杀干预）</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="support-card company">
+                    <h3>🏢 企业内部支持</h3>
+                    <div class="company-support">
+                        <div class="support-item">
+                            <span class="support-icon">👨‍⚕️</span>
+                            <div class="support-info">
+                                <h4>EAP员工帮助计划</h4>
+                                <p>免费心理咨询预约通道</p>
+                                <a href="#" class="support-link">立即预约 →</a>
+                            </div>
+                        </div>
+                        <div class="support-item">
+                            <span class="support-icon">🗣️</span>
+                            <div class="support-info">
+                                <h4>心理委员/HR支持</h4>
+                                <p>保密的一对一沟通渠道</p>
+                                <a href="#" class="support-link">联系心理委员 →</a>
+                            </div>
+                        </div>
+                        <div class="support-item">
+                            <span class="support-icon">📋</span>
+                            <div class="support-info">
+                                <h4>匿名反馈通道</h4>
+                                <p>完全匿名的意见与建议提交</p>
+                                <a href="#" class="support-link">匿名反馈 →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="support-card emergency">
+                    <h3>🚨 紧急情况</h3>
+                    <p class="emergency-text">如果你或你身边的人正在经历严重的心理危机，请立即采取以下行动：</p>
+                    <ul class="emergency-steps">
+                        <li>📞 拨打 120 急救电话或 110 报警</li>
+                        <li>🏥 前往最近医院的精神科/心理科急诊</li>
+                        <li>👥 联系身边信任的人陪伴</li>
+                        <li>📱 移除身边的危险物品</li>
+                    </ul>
+                    <p class="emergency-note">请记住：这个困难是暂时的，你并不孤单。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 每日一句 -->
+    <section class="daily-quote">
+        <div class="container">
+            <div class="quote-content">
+                <span class="quote-mark">"</span>
+                <p class="quote-text" id="quoteText">照顾好自己，是你能做的最勇敢的事情。</p>
+                <span class="quote-author" id="quoteAuthor">— 心灵寄语</span>
+            </div>
+            <button class="btn btn-outline btn-sm" id="refreshQuote">换一句 ✨</button>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>🌿 心灵港湾</h3>
+                    <p>企业员工心理健康关爱平台</p>
+                    <p class="footer-note">本站所有内容仅供心理健康教育参考，不构成专业医疗建议。如遇严重心理问题，请及时就医。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#breathe">呼吸练习</a></li>
+                        <li><a href="#meditation">冥想空间</a></li>
+                        <li><a href="#mood">情绪日记</a></li>
+                        <li><a href="#videos">疗愈视频</a></li>
+                        <li><a href="#resources">疗愈资源</a></li>
+                        <li><a href="#support">寻求帮助</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>联系我们</h4>
+                    <p>如有任何问题或建议</p>
+                    <p>欢迎通过企业内部渠道反馈</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 心灵港湾 · 用爱守护每一颗心 ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="返回顶部">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
